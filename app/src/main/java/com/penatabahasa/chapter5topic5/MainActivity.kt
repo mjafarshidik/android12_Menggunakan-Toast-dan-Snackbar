@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
     private fun showSnackBar() {
         binding.apply {
             val snackBar = Snackbar.make(btnSnackBar, "Bebas", Snackbar.LENGTH_INDEFINITE)
-            snackBar.setAction("back"){
+            snackBar.setAction("back") {
                 onBackPressed()
             }
-            snackBar.setAction("oke"){
+            snackBar.setAction("oke") {
                 Toast.makeText(this@MainActivity, "Oke cip", Toast.LENGTH_LONG).show()
             }
             btnSnackBar.setOnClickListener {
@@ -37,7 +37,12 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             btnShowName.setOnClickListener {
                 val name = edtName.text.toString()
-                Toast.makeText(this@MainActivity, name, Toast.LENGTH_LONG).show()
+                if (name == "") {
+                    Toast.makeText(this@MainActivity, "Isi dulu namanya coy", Toast.LENGTH_LONG)
+                        .show()
+                } else {
+                    Toast.makeText(this@MainActivity, name, Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
